@@ -2,12 +2,11 @@
 
 * Patika.dev Redux modülü "Text Generator" çalışması.
 
-
-
-## Kullandıgım Teknolojiler ve Araçlar
+## Kullanılan Teknoloji ve Araçlar
 * React.js
 * Redux
 * Redux Toolkit
+* Axios
 
 ## API
 * **HTML Response**
