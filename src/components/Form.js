@@ -1,5 +1,5 @@
 // REACT HOOK
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 // REDUX
 import { fetchTextGenerator } from "../redux/textgenerator/services";
@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 function Form() {
   const [number, setNumber] = useState(4);
   const [select, setSelect] = useState("text");
-  const didMountRef = useRef(false);
 
   let type = useMemo(() => {
     return { n: number, s: select };
@@ -17,12 +16,8 @@ function Form() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (didMountRef.current) {
-      dispatch(fetchTextGenerator(type));
-    } else {
-      didMountRef.current = true;
-    }
-  }, [dispatch, number, select, type]);
+    dispatch(fetchTextGenerator(type));
+  }, [dispatch, type]);
 
   return (
     <form className="form">
